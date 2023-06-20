@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+  <title>Job Search</title>
+</head>
+
+<body>
+
+  <!-- navbar start -->
+  <nav class="navbar">
+    <h2 class="navbar-logo"> <a href="./index.html">JOBACT</a> </h2>
+    <div class="navbar-menu">
+      <a href="./index.html">Home</a>
+      <a href="./jobs.html">Jobs</a>
+      <a href="./companies.html">Companies</a>
+      <a href="./testimoni.html">Testimoni</a>
+      <a href="./blog.html">Blog</a>
+      <a href="./basket.html">Basket</a>
+      <a href="./whishlist.html">Wishlist</a>
+      <a href="#">Sign In</a>
+    </div>
+
+    <div class="menu-toggle">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+
+  </nav>
+  <!-- navbar end -->
+
+
+  <!-- header start -->
+  <header>
+    <h1 class="header-title">
+      FIND YOUR <br> <span>PERFECT JOB</span> <br> EASILY
+    </h1>
+  </header>
+
+  <!-- header end -->
+    <h1>
+      <span>Total:</span>
+      <h2>0</h2>
+    </h1>
+    <div id="basket_container"></div>
+
+    <button class="confirm">CONFRIM ORDER</button>
+    <script>
+      const basket_container = document.getElementById("basket_container");
+      const h2 = document.querySelector("h2");
+      let basket_arr = [];
+
+      basket_arr = JSON.parse(localStorage.getItem("basket"));
+      getTotal();
+      basket_arr.forEach((element) => {
+        const div = document.createElement("div");
+        const h3 = document.createElement("h3");
+        const inc = document.createElement("button");
+        const p = document.createElement("p");
+        const dec = document.createElement("button");
+        const del = document.createElement("button");
+
+        h3.innerHTML = element.name;
+        inc.innerHTML = "+";
+        p.innerHTML = element.count;
+        dec.innerHTML = "-";
+        del.innerHTML = "X";
+
+        //artim
+        inc.onclick = () => {
+          p.innerHTML++;
+
+          basket_arr[basket_arr.findIndex((x) => element.id === x.id)].count++;
+          localStorage.setItem("basket", JSON.stringify(basket_arr));
+          getTotal();
+        };
+        //azalma
+        dec.onclick = () => {
+          if (p.innerHTML === "1") {
+            return;
+          }
+          p.innerHTML--;
+
+          basket_arr[basket_arr.findIndex((x) => element.id === x.id)].count--;
+          localStorage.setItem("basket", JSON.stringify(basket_arr));
+          getTotal();
+        };
+        //delete
+        del.onclick = () => {
+          basket_arr = basket_arr.filter((x) => x.id !== element.id);
+          localStorage.setItem("basket", JSON.stringify(basket_arr));
+          getTotal();
+
+          del.parentElement.remove();
+        };
+
+        div.classList.add("basket_item");
+
+        div.append(h3, inc, p, dec, del);
+        basket_container.append(div);
+      });
+
+      function getTotal() {
+        h2.innerHTML = basket_arr.reduce(
+          (sum, prev) => sum + prev.unitPrice * prev.count,
+          0
+        );
+      }
+    </script>
+    <script src="../assets/js/script.js"></script>
+    <!-- <script src="../assets/js/basket.js"></script> -->
+  </body>
+</html>

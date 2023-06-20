@@ -1,0 +1,49 @@
+.job-more{
+    display: block;
+    padding: 0.3rem 2rem;
+    margin: 20px auto;
+    width: 250px;
+    background-color: transparent;
+    color: var(--primaryColor);
+    border: 1px solid var(--primaryColor);
+    border-radius: 20px;
+    cursor: pointer;
+}
+.job-more:hover{
+    background-color: var(--primaryColor);
+    color: var(--whiteColor);
+}
+
+.join-button{
+    width: 200px;
+    padding: 1rem;
+    border: none;
+    color: var(--blackColor);
+    background-color: var(--yellowColor);
+    box-shadow: rgba(0,0,0,0.35) 0px 5px 15px;
+    z-index: 2;
+    cursor: pointer;
+
+}
+
+.join-button:hover{
+    background-color: transparent;
+    border: 2px solid var(--yellowColor);
+    color: var(--yellowColor);
+}
+
+
+.featured-button{
+    border: 1px solid var(--primaryColor);
+    background-color: transparent;
+    margin-top: 0.5rem;
+    padding: 3px 10px;
+    cursor: pointer;
+    color: var(--primaryColor);
+}
+
+.featured-button:hover{
+    background-color: var(--primaryColor);
+    color: var(--whiteColor);
+    transition: 500ms;
+}

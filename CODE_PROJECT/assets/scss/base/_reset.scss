@@ -1,0 +1,34 @@
+:root{
+    --primaryColor : #0076de;
+    --whiteColor: #fff;
+    --blackColor: #333;
+    --greyColor: #f6f8fa;
+    --labelColor: #64b1f5;
+    --yellowColor: #ffd723;
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    font-family: 'Calibri', sans-serif;
+}
+
+body{
+    width: 100%;
+    height: auto;
+}
+
+a{
+    text-decoration: none;
+}
+
+li{
+    list-style: none;
+}
+
+h1{
+    line-height: 1.5;
+}

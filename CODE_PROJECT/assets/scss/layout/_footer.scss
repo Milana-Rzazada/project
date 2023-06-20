@@ -1,0 +1,40 @@
+footer{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    background: var(--primaryColor);
+    color: var(--whiteColor);
+    padding: 3rem;
+    .footer-wrapper{
+        display: flex;
+        flex-direction: column;
+        padding: 0.5rem;
+        justify-content: flex-start;
+        align-items: flex-start;
+        a{
+            color: var(--greyColor);
+            line-height: 2;
+        }
+        a:hover{
+            text-decoration: underline;
+            transition: 500ms;
+        }
+        h4, h3{
+            line-height: 3;
+            color: var(--yellowColor);
+        }
+        p{
+            max-width: 400px;
+            line-height: 1.5;
+        }
+        .social-media{
+            margin: 1rem;
+            a{
+                color: var(--greyColor);
+                margin-right: 10px;
+            }
+        }
+    }
+}
